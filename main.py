@@ -29,7 +29,14 @@ nato_alphabet = {value.letter: value.code for (key, value) in nato_phonetic.iter
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 
-user_value = input("Enter a word: ").upper()
-input_value = [nato_alphabet[letter] for letter in user_value]
-print(input_value)
+ask = True
+while ask:
+    user_value = input("Enter a word: ").upper()
+    try:
+        input_value = [nato_alphabet[letter] for letter in user_value]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please")
+    else:
+        print(input_value)
+        ask = False
 
